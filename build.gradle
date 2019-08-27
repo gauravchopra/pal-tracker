@@ -26,7 +26,7 @@ assignments {
     apiUrl = "https://assignments.education.pivotal.io/"
     emails = [
             "bhupesh.upadhyay@rbs.com",
-            "gaurav.chopra@natwestmarkets.com",
+            "gaurav.chopra@rbs.com",
     ]
     cohortIdentifier = "349803246"
 }
