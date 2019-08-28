@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 
+import javax.sql.DataSource;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,17 +25,11 @@ public class PalTrackerApplication {
     }
 
     @Bean
-    public TimeEntryRepository timeEntryRepository()
+    public TimeEntryRepository timeEntryRepository(DataSource dataSource)
     {
-        return new JdbcTimeEntryRepository(mysqlDataSource());
+        return new JdbcTimeEntryRepository(dataSource);
     }
 
-
-    public MysqlDataSource mysqlDataSource(){
-        MysqlDataSource mysqlDataSource= new MysqlDataSource();
-        mysqlDataSource.setUrl(System.getenv("SPRING_DATASOURCE_URL"));
-        return mysqlDataSource;
-    }
 
 
 
