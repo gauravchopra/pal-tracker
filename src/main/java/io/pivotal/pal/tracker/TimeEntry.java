@@ -1,6 +1,10 @@
 package io.pivotal.pal.tracker;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class TimeEntry {
@@ -9,6 +13,8 @@ public class TimeEntry {
     private long timeEntryId;
     private long projectId;
     private long userId;
+   // @JsonFormat(pattern="MM/dd/yyyy")
+    @JsonDeserialize(using=CustomDeserialize.class)
     private LocalDate date;
     private int hours;
 
