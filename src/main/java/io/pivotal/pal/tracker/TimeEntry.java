@@ -10,7 +10,7 @@ import java.util.Objects;
 public class TimeEntry {
 
     private long id;
-    private long timeEntryId;
+
     private long projectId;
     private long userId;
    // @JsonFormat(pattern="MM/dd/yyyy")
@@ -23,17 +23,13 @@ public class TimeEntry {
         return id;
     }
 
-    public long getTimeEntryId() {
-        return timeEntryId;
-    }
+
 
     public void setId(long id) {
         this.id = id;
     }
 
-    public void setTimeEntryId(long timeEntryId) {
-        this.timeEntryId = timeEntryId;
-    }
+
 
     public TimeEntry(long projectId, long userId, LocalDate parse, int hours) {
 
@@ -43,9 +39,8 @@ public class TimeEntry {
         this.hours = hours;
     }
 
-    public TimeEntry(long timeEntryId, long projectId, long userId, LocalDate parse, int hours) {
-        this.id=this.timeEntryId;
-        this.timeEntryId = timeEntryId;
+    public TimeEntry(long id, long projectId, long userId, LocalDate parse, int hours) {
+        this.id=id;
         this.projectId = projectId;
         this.userId = userId;
         this.date = parse;
@@ -109,7 +104,6 @@ public class TimeEntry {
     public String toString() {
         return "TimeEntry{" +
                 "id=" + id +
-                ", timeEntryId=" + timeEntryId +
                 ", projectId=" + projectId +
                 ", userId=" + userId +
                 ", localDate=" + date +

@@ -3,6 +3,7 @@ package io.pivotal.pal.tracker;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
@@ -25,7 +26,14 @@ public class PalTrackerApplication {
     @Bean
     public TimeEntryRepository timeEntryRepository()
     {
-        return new InMemoryTimeEntryRepository();
+        return new JdbcTimeEntryRepository(mysqlDataSource());
+    }
+
+
+    public MysqlDataSource mysqlDataSource(){
+        MysqlDataSource mysqlDataSource= new MysqlDataSource();
+        mysqlDataSource.setUrl(System.getenv("SPRING_DATASOURCE_URL"));
+        return mysqlDataSource;
     }
 
 

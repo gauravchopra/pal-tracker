@@ -52,7 +52,6 @@ public class InMemoryTimeEntryRepository implements  TimeEntryRepository{
         timeEntryOld.setDate(timeEntry.getDate());
         timeEntryOld.setHours(timeEntry.getHours());
         timeEntryOld.setUserId(timeEntry.getUserId());
-        timeEntryOld.setTimeEntryId(timeEntry.getTimeEntryId());
         return timeEntryOld;
     }
 
