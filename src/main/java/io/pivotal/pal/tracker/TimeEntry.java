@@ -14,7 +14,7 @@ public class TimeEntry {
     private long projectId;
     private long userId;
    // @JsonFormat(pattern="MM/dd/yyyy")
-    @JsonDeserialize(using=CustomDeserialize.class)
+  //  @JsonDeserialize(using=CustomDeserialize.class)
     private LocalDate date;
     private int hours;
 
