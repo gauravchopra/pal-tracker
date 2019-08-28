@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.ConcurrentHashMap;
 
 @SpringBootApplication
 public class PalTrackerApplication {
@@ -22,7 +23,8 @@ public class PalTrackerApplication {
     }
 
     @Bean
-    public TimeEntryRepository timeEntryRepository(){
+    public TimeEntryRepository timeEntryRepository()
+    {
         return new InMemoryTimeEntryRepository();
     }
 
